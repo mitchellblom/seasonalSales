@@ -8,15 +8,18 @@ var myRequest = new XMLHttpRequest();
 ////////////// EXECUTIONS //////////////////////
 
 function categoriesDom(xhrData) { //xhrData comes from makeDom(data) in the executeCategories function
-    var catString = "";
+    var categoryString = "";
     var categories = "";
 
     for (var i = 0; i < xhrData.categories.length; i++) {
-        console.log("dept loop works");
         categories = xhrData.categories[i];
+        categoryString += `<div class="departments">`;
+        categoryString += `<div>${categories.name}</div>`;
+        categoryString += `<div>${categories.season_discount}</div>`;
+        categoryString += `<div>${categories.discount}</div>`;
+        categoryString += `</div>`;
     }
-        catString += `<div>${categories.name}</div>`;
-		output.innerHTML = catString;
+		output.innerHTML = categoryString;
 }
 
 function executeCategories() {
