@@ -28,7 +28,7 @@ function categoriesDom(xhrData) { //xhrData comes from makeDom(data) in the exec
 function productDomSwitch(data) {
 	var apparel = document.getElementById("Apparel");
 	var furniture = document.getElementById("Furniture");
-	var apparel = document.getElementById("Household");
+	var household = document.getElementById("Household");
 
 	var appString = "";
 	var furnString = "";
@@ -39,17 +39,20 @@ function productDomSwitch(data) {
 			// console.log(prodInfo);
 
 		switch (prodInfo.category_id){
-	        // Apparel
 		        case 1:
-		            // console.log("Apparel: ", prodInfo.name);
+		            appString += prodInfo.name;
+		            appString += prodInfo.price;
+		            apparel.innerHTML = appString;
 		        break;
-	        // Furniture
 		        case 2: 
-		            // console.log("Furniture: ", prodInfo.name);
+		            furnString += prodInfo.name;
+		            furnString += prodInfo.price;
+		            furniture.innerHTML = furnString;
 		        break;
-		    // Household
 		        case 3: 
-		            // console.log("Household: ", prodInfo.name);
+		            houseString += prodInfo.name;
+		            houseString += prodInfo.price;
+		            household.innerHTML = houseString;
 		        break;
 	        }
 	    }
