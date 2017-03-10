@@ -14,10 +14,10 @@ function categoriesDom(xhrData) { //xhrData comes from makeDom(data) in the exec
     for (var i = 0; i < xhrData.categories.length; i++) {
         categories = xhrData.categories[i];
         categoryString += `<div class="departments">`;
-        categoryString += `<div>${categories.name}</div>`;
+        categoryString += `<h4>${categories.name}</h4>`;
         categoryString += `<div id="${categories.name}"></div>`;
         categoryString += `<div id="${categories.season_discount}"></div>`;
-        categoryString += `<div>${categories.discount}</div>`;
+        // categoryString += `<p>${categories.discount}</p>`;
         categoryString += `</div>`;
     }
 		output.innerHTML = categoryString;
@@ -40,18 +40,18 @@ function productDomSwitch(data) {
 
 		switch (prodInfo.category_id){
 		        case 1:
-		            appString += prodInfo.name;
-		            appString += prodInfo.price;
+		            appString += `<div>${prodInfo.name}</div>`;
+		            appString += `<p>$ ${prodInfo.price}</p>`;
 		            apparel.innerHTML = appString;
 		        break;
-		        case 2: 
-		            furnString += prodInfo.name;
-		            furnString += prodInfo.price;
+		        case 2:
+		            furnString += `<div>${prodInfo.name}</div>`;
+		            furnString += `<p>$ ${prodInfo.price}</p>`;
 		            furniture.innerHTML = furnString;
 		        break;
 		        case 3: 
-		            houseString += prodInfo.name;
-		            houseString += prodInfo.price;
+		            houseString += `<div>${prodInfo.name}</div>`;
+		            houseString += `<p>$ ${prodInfo.price}</p>`;
 		            household.innerHTML = houseString;
 		        break;
 	        }
