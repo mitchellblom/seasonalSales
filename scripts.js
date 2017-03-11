@@ -41,19 +41,19 @@ function productDomSwitch(data) {
 		        case 1:
 		            appString += `<div>${prodInfo.name}</div>`;
 		            appString += `<p>$</p>`;
-		            appString += `<p id="${prodInfo.category_id}">${prodInfo.price}</p>`;
+		            appString += `<p class="${prodInfo.category_id}">${prodInfo.price}</p>`;
 		            apparel.innerHTML = appString;
 		        break;
 		        case 2:
 		            furnString += `<div>${prodInfo.name}</div>`;
 		            furnString += `<p>$</p>`;
-		            furnString += `<p id="${prodInfo.category_id}">$ ${prodInfo.price}</p>`;
+		            furnString += `<p class="${prodInfo.category_id}">${prodInfo.price}</p>`;
 		            furniture.innerHTML = furnString;
 		        break;
 		        case 3:
 		            houseString += `<div>${prodInfo.name}</div>`;
 		            houseString += `<p>$</p>`;
-		            houseString += `<p id="${prodInfo.category_id}">${prodInfo.price}</p>`;
+		            houseString += `<p class="${prodInfo.category_id}">${prodInfo.price}</p>`;
 		            household.innerHTML = houseString;
 		        break;
 	        }
@@ -64,25 +64,29 @@ function productDomSwitch(data) {
 ////////////// APPLYING SEASONAL DISCOUNTS ///////////
 
 season.addEventListener("change", function (e) {
-	var winterDiscount = document.getElementById(1);
-	var autumnDiscount = document.getElementById(2);
-	var springDiscount = document.getElementById(3);
+	var winterDiscountMe = document.getElementsByClassName(1);
+	var autumnDiscountMe = document.getElementsByClassName(2);
+	var springDiscountMe = document.getElementsByClassName(3);
 	switch (e.target.value){
 		        case "Winter":
-					console.log("selected winter", winterDiscount);
-					// winterDiscount.innerHTML = (winterDiscount * .9);
-		            // console.log("discount during winter", winterDiscount.value);
-		            // appString += `<p>$ ${prodInfo.price}</p>`;
-		            // apparel.innerHTML = appString;
+		        	for (var i = 0; i < winterDiscountMe.length; i++) {
+		        	// var winterOrig = winterDiscountMe[i];
+		        	// console.log(winterOrig[i]);
+					console.log("selected winter: ", winterDiscountMe[i].innerHTML);
+					winterPriceToDiscount = winterDiscountMe[i].innerHTML;
+					var winterDiscountedPrice = (winterPriceToDiscount * .9);
+					console.log("winter discounted price: ", winterDiscountedPrice);
+		            winterDiscountMe[i].innerHTML = winterDiscountedPrice.toFixed(2);
+		        	}
 		        break;
 		        case "Autumn":
-		        	console.log("selected autumn");
+		        	console.log("selected autumn", autumnDiscountMe);
 		            // furnString += `<div>${prodInfo.name}</div>`;
 		            // furnString += `<p>$ ${prodInfo.price}</p>`;
 		            // furniture.innerHTML = furnString;
 		        break;
 		        case "Spring": 
-		       		console.log("selected spring");
+		       		console.log("selected spring", springDiscountMe);
 		            // houseString += `<div>${prodInfo.name}</div>`;
 		            // houseString += `<p>$ ${prodInfo.price}</p>`;
 		            // household.innerHTML = houseString;
