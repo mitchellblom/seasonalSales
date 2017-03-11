@@ -1,6 +1,7 @@
 /////////////// REFERENCES /////////////////////
 
 var output = document.getElementById("output");
+var season = document.getElementById("season");
 var deptRequest = new XMLHttpRequest();
 var prodRequest = new XMLHttpRequest();
 
@@ -51,12 +52,40 @@ function productDomSwitch(data) {
 		        break;
 		        case 3: 
 		            houseString += `<div>${prodInfo.name}</div>`;
-		            houseString += `<p>$ ${prodInfo.price}</p>`;
+		            houseString += `<p id=${prodInfo.season_discount}>$ ${prodInfo.price}</p>`;
 		            household.innerHTML = houseString;
 		        break;
 	        }
 	    }
 	};
+
+
+////////////// APPLYING SEASONAL DISCOUNTS ///////////
+
+season.addEventListener("change", function (e) {
+	switch (e.target.value){
+		        case "Winter":
+					console.log("selected winter");
+		            // appString += `<div>${prodInfo.name}</div>`;
+		            // appString += `<p>$ ${prodInfo.price}</p>`;
+		            // apparel.innerHTML = appString;
+		        break;
+		        case "Autumn":
+		        	console.log("selected autumn");
+		            // furnString += `<div>${prodInfo.name}</div>`;
+		            // furnString += `<p>$ ${prodInfo.price}</p>`;
+		            // furniture.innerHTML = furnString;
+		        break;
+		        case "Spring": 
+		       		console.log("selected spring");
+		            // houseString += `<div>${prodInfo.name}</div>`;
+		            // houseString += `<p>$ ${prodInfo.price}</p>`;
+		            // household.innerHTML = houseString;
+		        break;
+	        }
+
+})
+
 
 
 ////////////// EXECUTIONS //////////////////////////
