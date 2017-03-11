@@ -80,16 +80,18 @@ season.addEventListener("change", function (e) {
 		        	}
 		        break;
 		        case "Autumn":
-		        	console.log("selected autumn", autumnDiscountMe);
-		            // furnString += `<div>${prodInfo.name}</div>`;
-		            // furnString += `<p>$ ${prodInfo.price}</p>`;
-		            // furniture.innerHTML = furnString;
+		        	for (var i = 0; i < autumnDiscountMe.length; i++) {
+		            autumnPriceToDiscount = autumnDiscountMe[i].innerHTML;
+					var autumnDiscountedPrice = (autumnPriceToDiscount * .9);
+		            autumnDiscountMe[i].innerHTML = autumnDiscountedPrice.toFixed(2);
+		        	}
 		        break;
-		        case "Spring": 
-		       		console.log("selected spring", springDiscountMe);
-		            // houseString += `<div>${prodInfo.name}</div>`;
-		            // houseString += `<p>$ ${prodInfo.price}</p>`;
-		            // household.innerHTML = houseString;
+		        case "Spring":
+		        	for (var i = 0; i < springDiscountMe.length; i++) {
+		            springPriceToDiscount = springDiscountMe[i].innerHTML;
+					var springDiscountedPrice = (springPriceToDiscount * .9);
+		            springDiscountMe[i].innerHTML = springDiscountedPrice.toFixed(2);
+		        	}
 		        break;
 	        }
 
