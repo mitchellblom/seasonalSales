@@ -37,22 +37,23 @@ function productDomSwitch(data) {
 
 	for (var i = 0; i < data.products.length; i++){
 			var prodInfo = data.products[i];	
-			// console.log(prodInfo);
-
 		switch (prodInfo.category_id){
 		        case 1:
 		            appString += `<div>${prodInfo.name}</div>`;
-		            appString += `<p>$ ${prodInfo.price}</p>`;
+		            appString += `<p>$</p>`;
+		            appString += `<p id="${prodInfo.category_id}">${prodInfo.price}</p>`;
 		            apparel.innerHTML = appString;
 		        break;
 		        case 2:
 		            furnString += `<div>${prodInfo.name}</div>`;
-		            furnString += `<p>$ ${prodInfo.price}</p>`;
+		            furnString += `<p>$</p>`;
+		            furnString += `<p id="${prodInfo.category_id}">$ ${prodInfo.price}</p>`;
 		            furniture.innerHTML = furnString;
 		        break;
-		        case 3: 
+		        case 3:
 		            houseString += `<div>${prodInfo.name}</div>`;
-		            houseString += `<p id=${prodInfo.season_discount}>$ ${prodInfo.price}</p>`;
+		            houseString += `<p>$</p>`;
+		            houseString += `<p id="${prodInfo.category_id}">${prodInfo.price}</p>`;
 		            household.innerHTML = houseString;
 		        break;
 	        }
@@ -63,10 +64,14 @@ function productDomSwitch(data) {
 ////////////// APPLYING SEASONAL DISCOUNTS ///////////
 
 season.addEventListener("change", function (e) {
+	var winterDiscount = document.getElementById(1);
+	var autumnDiscount = document.getElementById(2);
+	var springDiscount = document.getElementById(3);
 	switch (e.target.value){
 		        case "Winter":
-					console.log("selected winter");
-		            // appString += `<div>${prodInfo.name}</div>`;
+					console.log("selected winter", winterDiscount);
+					// winterDiscount.innerHTML = (winterDiscount * .9);
+		            // console.log("discount during winter", winterDiscount.value);
 		            // appString += `<p>$ ${prodInfo.price}</p>`;
 		            // apparel.innerHTML = appString;
 		        break;
@@ -84,7 +89,7 @@ season.addEventListener("change", function (e) {
 		        break;
 	        }
 
-})
+});
 
 
 
