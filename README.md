@@ -1,6 +1,6 @@
 # NSS Seasonal Sales Exercise
 
-![Splashpage]()
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/seasonalSales/sales/sales.png)
 
 <hr>
 
